@@ -1,0 +1,27 @@
+{
+    "types": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "plus_2",
+        "reverse",
+        "skip"
+    ],
+    "otherTypes": [
+        "wild",
+        "plus_4"
+    ],
+    "colors": [
+        "blue",
+        "green",
+        "red",
+        "yellow"
+    ]
+}
