@@ -15,11 +15,6 @@ body {
     margin: 0;
 }
 
-@mixin brightness-transition {
-    filter: brightness(120%);
-    -webkit-transition: 0.2s ease-out;
-    transition: filter 0.2s ease-out;
-}
 @mixin deck {
     position: absolute;
     text-align: center;
@@ -50,6 +45,10 @@ body {
     left: calc(50vw - calc($width / 2));
     width: $width;
 }
+#current-card {
+    -webkit-transition: 0.2s ease-out;
+    transition: filter 0.2s ease-out;
+}
 #current-card,
 #drawing-deck {
     width: calc($card-width + 15px);
@@ -59,7 +58,7 @@ body {
 
 #current-card:hover,
 .cards:hover {
-    @include brightness-transition();
+    filter: brightness(120%);
 }
 
 .cards {
@@ -73,6 +72,8 @@ body {
     margin-right: $margin;
     margin-top: 25px;
     outline: none;
+    -webkit-transition: 0.2s ease-out;
+    transition: filter 0.2s ease-out;
 }
 .text {
     color: $secondary-color;
