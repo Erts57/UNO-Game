@@ -48,17 +48,16 @@ body {
 #current-card {
     -webkit-transition: 0.2s ease-out;
     transition: filter 0.2s ease-out;
+
+    &:hover {
+        filter: brightness(120%);
+    }
 }
 #current-card,
 #drawing-deck {
     width: calc($card-width + 15px);
     height: calc($card-height + 15px);
     margin: 0 10px;
-}
-
-#current-card:hover,
-.cards:hover {
-    filter: brightness(120%);
 }
 
 .cards {
@@ -74,6 +73,10 @@ body {
     outline: none;
     -webkit-transition: 0.2s ease-out;
     transition: filter 0.2s ease-out;
+
+    &:hover {
+        filter: brightness(120%);
+    }
 }
 .text {
     color: $secondary-color;
