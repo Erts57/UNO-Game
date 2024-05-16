@@ -91,15 +91,18 @@ function cardClicked(cardNumber) {
                 for (let i = 0; i < 4; i++) {
                     game.addRandomCard();
                 }
+                checkWinLose();
                 return;
             case "skip": // Skip Card : Removes a random card
                 discard();
                 game.removeRandomCard();
+                checkWinLose();
                 return;
             case "plus_2": // Plus 2 Card : Adds 2 cards even if their is no room
                 discard();
                 game.addRandomCard();
                 game.addRandomCard();
+                checkWinLose();
                 return;
             case "reverse": // Reverse Card : Changes the color of a random card
                 discard();

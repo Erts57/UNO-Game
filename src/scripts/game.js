@@ -9,14 +9,14 @@ import {
     isSpecial
 } from "./util";
 
-const maxSpecials = 4;
+const maxSpecials = 8;
 export const specials = {
     wild: 0,
     plus_4: 0
 };
 
 export const blankCard = "blank";
-export let maxCards = 12;
+export let maxCards = 40;
 
 export let deck = _.split(_.repeat(`${blankCard},`, maxCards), ",", maxCards);
 export let currentCard = blankCard;
@@ -203,7 +203,10 @@ export default class Game {
     generateDeck() {
         specials.wild = specials.plus_4 = 0;
         deck = _.split(_.repeat(`${blankCard},`, maxCards), ",", maxCards);
-        for (let i = 0; i < 7; i++) {
+        const cardNumber = new URLSearchParams(window.location.search).has("cards")
+            ? Math.min(40, _.toNumber(new URLSearchParams(window.location.search).get("cards")))
+            : 14;
+        for (let i = 0; i < cardNumber; i++) {
             this.addRandomCard();
         }
         currentCard = randomCard();
@@ -343,7 +346,8 @@ export default class Game {
     canMakeMatch() {
         const color = getCardColor(currentCard);
         const type = getCardType(currentCard);
-        const hasSpecial = this.deckContains("wild") || (this.deckContains("plus_4") && this.countCards() <= maxCards - 3);
+        const hasSpecial =
+            this.deckContains("wild") || (this.deckContains("plus_4") && this.countCards() <= maxCards - 3);
         return (
             this.deckContainsColor(color) ||
             this.deckContainsType(type) ||

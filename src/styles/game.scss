@@ -4,8 +4,8 @@ $teriary-color: #8b0000;
 
 $font: "Arial Rounded MT", Tahoma, Verdana, Arial, sans-serif;
 
-$card-width: 100px;
-$card-height: 125px;
+$card-width: calc(100px / 1.5);
+$card-height: calc(125px / 1.5);
 
 body {
     display: block;
@@ -26,13 +26,13 @@ body {
     bottom: 2rem;
     left: 1vw;
     width: 98vw;
-    height: calc($card-height + 50px);
+    height: calc($card-height * 2 + 75px);
     background-color: $teriary-color;
 }
 #draw-deck {
     $height: calc($card-height + 35px);
     @include deck();
-    top: calc(50vh - calc($height / 2));
+    top: calc(50vh - $height);
     left: 40vw;
     width: 20vw;
     height: $height;
@@ -57,11 +57,11 @@ body {
 #drawing-deck {
     width: calc($card-width + 15px);
     height: calc($card-height + 15px);
-    margin: 0 10px;
+    margin: 0 6px;
 }
 
 .cards {
-    $margin: 10px;
+    $margin: 3px;
     background: transparent;
     border: transparent;
     width: $card-width;
